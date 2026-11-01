@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  @apply text-slate-800 font-sans antialiased;
+  margin: 0;
+  background-color: #eef0ff;
+  background-image:
+    radial-gradient(ellipse at 12% 18%, rgba(99, 102, 241, 0.14) 0%, transparent 52%),
+    radial-gradient(ellipse at 88% 82%, rgba(16, 185, 129, 0.11) 0%, transparent 52%),
+    radial-gradient(ellipse at 72% 8%,  rgba(168, 85, 247, 0.08) 0%, transparent 48%);
+  background-attachment: fixed;
+}
+
+@layer components {
+  /* ── Buttons ─────────────────────────────────────────────── */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-2xl px-5 py-3
+      font-display font-bold select-none transition-all duration-100
+      disabled:opacity-40 disabled:pointer-events-none;
+  }
+  .btn-primary {
+    @apply btn bg-brand-500 text-white
+      shadow-[0_5px_0_#0b7540]
+      hover:brightness-105
+      active:shadow-[0_2px_0_#0b7540] active:translate-y-[3px];
+  }
+  .btn-danger {
+    @apply btn bg-coral-500 text-white
+      shadow-[0_5px_0_#b02b18]
+      hover:brightness-105
+      active:shadow-[0_2px_0_#b02b18] active:translate-y-[3px];
+  }
+  .btn-secondary {
+    @apply btn bg-white text-slate-700
+      shadow-[0_4px_0_rgba(0,0,0,0.10)]
+      ring-1 ring-slate-200
+      hover:bg-slate-50
+      active:shadow-[0_1px_0_rgba(0,0,0,0.10)] active:translate-y-[3px];
+  }
+  .btn-grape {
+    @apply btn bg-grape-500 text-white
+      shadow-[0_5px_0_#5f1ec9]
+      hover:brightness-105
+      active:shadow-[0_2px_0_#5f1ec9] active:translate-y-[3px];
+  }
+
+  /* ── Cards ───────────────────────────────────────────────── */
+  .card {
+    @apply rounded-3xl bg-white p-6 shadow-card;
+  }
+  .card-interactive {
+    @apply card cursor-pointer transition-all duration-150
+      hover:-translate-y-1 hover:shadow-card-hover
+      active:translate-y-0 active:shadow-card-active;
+  }
+
+  /* ── Inputs ──────────────────────────────────────────────── */
+  .input {
+    @apply w-full rounded-2xl border-2 border-slate-200 bg-white px-4 py-3 text-lg
+      outline-none transition-all duration-150
+      focus:border-brand-400 focus:ring-4 focus:ring-brand-100
+      placeholder:text-slate-300;
+  }
+  .input-error {
+    @apply border-coral-400 focus:border-coral-400 focus:ring-coral-100;
+  }
+
+  /* ── Stage pills ─────────────────────────────────────────── */
+  .stage-pill-1 {
+    @apply bg-slate-100 text-slate-600;
+  }
+  .stage-pill-2 {
+    @apply bg-brand-100 text-brand-700;
+  }
+  .stage-pill-3 {
+    @apply bg-grape-100 text-grape-700;
+  }
+}
